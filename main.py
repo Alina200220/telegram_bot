@@ -3,7 +3,7 @@ import places
 import random
 from telebot import types 
 
-bot = telebot.TeleBot('6481254654:AAE4coc8GbjftAd0lzoBQ2_8j6aZsd2IQ-c')
+bot = telebot.TeleBot('token')
 
 @bot.message_handler(commands=['start'])
 def start(message):
@@ -27,7 +27,7 @@ def func(message):
         btn2 = types.KeyboardButton("Подмосковье")
         back = types.KeyboardButton("Вернуться в главное меню")
         markup.add(btn1, btn2,back)
-        bot.send_message(message.chat.id, text=f'Ехай в {random.sample(places.zagorod,1)[0]}',reply_markup=markup)
+        bot.send_message(message.chat.id, text=f'Едь в {random.sample(places.zagorod,1)[0]}',reply_markup=markup)
     
     elif message.text == "Москва":
         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -35,7 +35,7 @@ def func(message):
         btn2 = types.KeyboardButton("Подмосковье")
         back = types.KeyboardButton("Вернуться в главное меню")
         markup.add(btn1, btn2,back)
-        bot.send_message(message.chat.id, text=f'Ехай в {random.sample(places.moscow,1)[0]}',reply_markup=markup)
+        bot.send_message(message.chat.id, text=f'Едь в {random.sample(places.moscow,1)[0]}',reply_markup=markup)
     
     elif (message.text == "Вернуться в главное меню"):
          markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
